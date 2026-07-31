@@ -205,6 +205,11 @@
       padding: 28px 0; text-align: center;
       color: var(--muted); font-size: 0.85rem;
     }
+    footer a {
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--accent); }
 
     /* ---- reveal animation ---- */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -365,7 +370,10 @@
   </section>
 
   <footer>
-    <div class="container">© 2026 wikivn · Android Developer — Made with ❤️ in Vietnam</div>
+    <div class="container">
+      © 2026 wikivn · Android Developer — Made with ❤️ in Vietnam ·
+      <a href="orbit-privacy/">Orbit Privacy Policy</a>
+    </div>
   </footer>
 
   <script>

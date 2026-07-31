@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for Orbit, an Android quick app launcher by wikivn.">
+  <title>Orbit Privacy Policy — wikivn</title>
+  <style>
+    :root {
+      --bg: #0a0f14;
+      --bg-soft: #0f1720;
+      --card: #121c26;
+      --border: #1e2c3a;
+      --text: #e6edf3;
+      --muted: #9babb9;
+      --accent: #3ddc84;
+      --accent-2: #00b0ff;
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    ::selection { background: rgba(61, 220, 132, 0.3); }
+
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-2); }
+
+    .glow {
+      position: fixed;
+      width: 560px;
+      height: 560px;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-1 { background: var(--accent); top: -220px; right: -160px; }
+    .glow-2 { background: var(--accent-2); bottom: -260px; left: -210px; }
+
+    .container {
+      width: min(100% - 48px, 820px);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 15, 20, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 65px;
+    }
+
+    .logo {
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .back-link {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    header { padding: 80px 0 38px; }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+      font-size: clamp(2.25rem, 7vw, 4rem);
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .meta {
+      display: flex;
+      gap: 10px 22px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 24px 0 42px;
+    }
+
+    .summary-item {
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .summary-item span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    main { padding-bottom: 72px; }
+
+    article {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(18, 28, 38, 0.72);
+    }
+
+    section { padding: 30px 34px; }
+    section + section { border-top: 1px solid var(--border); }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 1.28rem;
+      letter-spacing: -0.015em;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1rem;
+    }
+
+    p,
+    ul { color: var(--muted); }
+
+    p + p,
+    p + ul,
+    ul + p { margin-top: 12px; }
+
+    ul { padding-left: 22px; }
+    li + li { margin-top: 5px; }
+
+    code {
+      padding: 2px 6px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-soft);
+      color: var(--text);
+      font-size: 0.88em;
+    }
+
+    .contact {
+      display: inline-flex;
+      margin-top: 14px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #2bb673);
+      color: #06281a;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .contact:hover { color: #06281a; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 32px, 820px); }
+      header { padding-top: 56px; }
+      .summary { grid-template-columns: 1fr; }
+      section { padding: 25px 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <nav aria-label="Primary navigation">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html">wiki<span>vn</span></a>
+      <a class="back-link" href="index.html">Back to home</a>
+    </div>
+  </nav>
+
+  <header class="container">
+    <div class="eyebrow">Orbit for Android</div>
+    <h1>Privacy <span class="gradient">Policy</span></h1>
+    <p class="intro">
+      Orbit is designed to work locally on your Android device. This policy explains
+      what the app accesses, why it needs that information, and the choices available to you.
+    </p>
+    <div class="meta">
+      <span><strong>Effective:</strong> July 28, 2026</span>
+      <span><strong>Application ID:</strong> co.bubbles</span>
+      <span><strong>Publisher:</strong> wikivn</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="summary" aria-label="Privacy summary">
+      <div class="summary-item">
+        <strong>On-device processing</strong>
+        <span>App information and preferences stay on your device.</span>
+      </div>
+      <div class="summary-item">
+        <strong>Google-served ads</strong>
+        <span>One banner is shown inside Orbit, subject to your privacy choices.</span>
+      </div>
+      <div class="summary-item">
+        <strong>No developer server</strong>
+        <span>Your app list and Orbit preferences are not sent to us.</span>
+      </div>
+      <div class="summary-item">
+        <strong>No data sale</strong>
+        <span>We do not sell your personal information.</span>
+      </div>
+    </div>
+
+    <article>
+      <section>
+        <h2>1. Overview</h2>
+        <p>
+          Orbit (“the App”) is provided by <strong>wikivn</strong> (“we”, “us”, or
+          “the developer”). Orbit’s launcher features work locally, and we do not
+          operate a server that receives your installed-app list or Orbit preferences.
+        </p>
+        <p>
+          The App uses Google Mobile Ads to display a banner advertisement. Google may
+          collect and share limited device, interaction, diagnostic, and identifier
+          data for advertising, analytics, and fraud prevention as described below.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Information the App accesses</h2>
+        <h3>Installed and launchable apps</h3>
+        <p>
+          Orbit reads the apps on your device that have a launcher activity. For each
+          visible app, Orbit may access:
+        </p>
+        <ul>
+          <li>the app name and icon;</li>
+          <li>the package identifier; and</li>
+          <li>the launcher activity.</li>
+        </ul>
+        <p>
+          This information is used only on your device to display and search your app
+          list, let you choose apps for Quick Launch, open apps through Android Bubbles,
+          and create local notifications and launcher shortcuts.
+        </p>
+        <p>
+          The list of launchable apps is not sent to us or a remote server. Orbit does
+          not request the <code>QUERY_ALL_PACKAGES</code> permission.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Preferences stored on your device</h2>
+        <p>Orbit stores only the preferences needed to provide its features:</p>
+        <ul>
+          <li>package identifiers for apps you add to Quick Launch;</li>
+          <li>package identifiers for apps you hide;</li>
+          <li>your Quick Launch notification mode;</li>
+          <li>your light, dark, or system theme choice; and</li>
+          <li>whether you dismissed the in-app usage tip.</li>
+        </ul>
+        <p>
+          Your per-app language selection is managed by Android’s system language
+          service. Orbit’s launcher features do not store your searches, usage history,
+          contacts, messages, location, photos, files, advertising identifiers, or
+          account information. Data processed by Google’s advertising SDK is described
+          below.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Advertising and privacy choices</h2>
+        <p>
+          Orbit uses the Google Mobile Ads SDK to display one banner advertisement
+          inside the App. Orbit does not display ads in Android notifications, Bubbles,
+          Quick Launch, other apps, or elsewhere on your device.
+        </p>
+        <p>
+          According to Google’s SDK disclosure, Google Mobile Ads automatically
+          collects and shares the following data for advertising, analytics, and fraud
+          prevention:
+        </p>
+        <ul>
+          <li>IP address, which may be used to estimate general location;</li>
+          <li>App and advertisement interactions, including launches, taps, impressions, and video views;</li>
+          <li>diagnostic information, including app or SDK performance, hang rate, and energy usage; and</li>
+          <li>device and account identifiers, including the Android advertising ID and app set ID.</li>
+        </ul>
+        <p>
+          Google states that this data is encrypted in transit and handles it under
+          <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>.
+        </p>
+        <p>
+          Orbit uses Google’s User Messaging Platform to request consent or present
+          privacy choices where required. When available, you can change these choices
+          from <strong>Settings → Privacy → Privacy choices</strong>. You can also reset
+          or delete the Android advertising ID in Android Settings.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Notifications, Bubbles, and shortcuts</h2>
+        <p>
+          Orbit uses Android system services to show the Quick Launch notification,
+          create Bubbles, and publish launcher shortcuts. App names, icons, and package
+          identifiers may be provided to Android system components on the same device
+          only as needed to operate those features.
+        </p>
+        <p>
+          The App requests the <code>POST_NOTIFICATIONS</code> permission on supported
+          Android versions. You may deny or revoke this permission in Android Settings,
+          but Quick Launch and Bubble features will not work without notifications.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Android backup and device transfer</h2>
+        <p>
+          If Android backup is enabled, Android may back up Orbit’s stored preferences,
+          including package identifiers for apps you added to Quick Launch or hid.
+          Android may also transfer those preferences directly to a new device.
+        </p>
+        <p>
+          These operations are controlled by Android and your backup provider. Backup
+          data is associated with your own device or backup account. It is not sent to
+          us, and we cannot access it. You can manage or disable backup through your
+          device or account settings.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Data sharing and sale</h2>
+        <p>
+          Orbit does not sell user data. We do not receive your installed-app list,
+          searches, Quick Launch selections, or hidden-app selections.
+        </p>
+        <p>
+          Google Mobile Ads collects and shares advertising-related data with Google
+          and its advertising partners as described above. Google may provide us with
+          aggregated advertising reports. Android platform services also process
+          information locally, or provide backup and device-transfer functionality.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Data retention and deletion</h2>
+        <p>Preferences remain on your device until you:</p>
+        <ul>
+          <li>remove or change them in the App;</li>
+          <li>clear Orbit’s storage in Android Settings; or</li>
+          <li>uninstall the App.</li>
+        </ul>
+        <p>
+          Backups previously created by Android may remain in your backup account
+          according to your backup provider’s retention rules. You can manage or delete
+          those backups through your device or account settings.
+        </p>
+        <p>
+          We do not hold your installed-app list or Orbit preferences. Google retains
+          advertising-related data according to its own policies. You can change
+          available advertising privacy choices from Orbit’s Settings and manage your
+          advertising ID in Android Settings.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Security</h2>
+        <p>
+          Orbit relies on Android’s application sandbox and system permission model to
+          protect its local data. Advertising-related network traffic is handled by
+          Google Mobile Ads, which states that collected data is encrypted in transit.
+          No storage or transmission method can be guaranteed completely secure.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Children’s privacy</h2>
+        <p>
+          Orbit is a general-purpose utility and is not directed to children under 13.
+          The App does not knowingly collect personal information from children or
+          other users.
+        </p>
+      </section>
+
+      <section>
+        <h2>11. Changes to this policy</h2>
+        <p>
+          We may update this Privacy Policy when the App’s features or data practices
+          change. The revised policy will show a new effective date. Material changes
+          will be reflected in the App or its Google Play listing as appropriate.
+        </p>
+      </section>
+
+      <section>
+        <h2>12. Contact</h2>
+        <p>
+          For privacy questions about Orbit, contact wikivn at:
+        </p>
+        <a class="contact" href="mailto:namhs.mobile@gmail.com">namhs.mobile@gmail.com</a>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 wikivn · Orbit Privacy Policy</div>
+  </footer>
+</body>
+</html>
