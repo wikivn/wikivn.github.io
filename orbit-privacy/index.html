@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Privacy Policy for Orbit, an Android quick app launcher by wikivn. Orbit runs on your device, has no server, and contains no ads or analytics.">
+  <meta name="description" content="Privacy Policy for Orbit, an Android quick app launcher by wikivn. Orbit runs on your device, has no server, and contains no ads or analytics. Notification access is optional and off by default.">
   <link rel="canonical" href="https://wikivn.github.io/orbit-privacy/">
   <title>Orbit Privacy Policy — wikivn</title>
   <style>
@@ -169,7 +169,7 @@
       background: rgba(18, 28, 38, 0.72);
     }
 
-    section { padding: 30px 34px; }
+    section { padding: 30px 34px; scroll-margin-top: 80px; }
     section + section { border-top: 1px solid var(--border); }
 
     h2 {
@@ -193,6 +193,9 @@
     ul { padding-left: 22px; }
     li + li { margin-top: 5px; }
 
+    li strong,
+    p strong { color: var(--text); }
+
     code {
       padding: 2px 6px;
       border: 1px solid var(--border);
@@ -208,6 +211,8 @@
       border: 1px solid var(--border);
       border-radius: 12px;
     }
+
+    .table-scroll + p { margin-top: 14px; }
 
     table {
       width: 100%;
@@ -289,7 +294,7 @@
       accesses, why it needs that information, and the choices available to you.
     </p>
     <div class="meta">
-      <span><strong>Effective:</strong> August 11, 2026</span>
+      <span><strong>Effective:</strong> September 11, 2026</span>
       <span><strong>Application ID:</strong> co.bubbles</span>
       <span><strong>Publisher:</strong> wikivn</span>
     </div>
@@ -307,16 +312,24 @@
       </div>
       <div class="summary-item">
         <strong>On-device processing</strong>
-        <span>Your app list and preferences are used and stored on your device.</span>
+        <span>Your app list, groups, searches and preferences stay on your device.</span>
+      </div>
+      <div class="summary-item">
+        <strong>Notification access is opt-in</strong>
+        <span>Off by default. When on, it sees which app posted — not what it says, unless you turn on Preview.</span>
       </div>
       <div class="summary-item">
         <strong>Payments via Google Play</strong>
         <span>Orbit Pro is billed by Google. Your payment details never reach us.</span>
       </div>
+      <div class="summary-item">
+        <strong>You choose what reaches us</strong>
+        <span>Only an email you decide to send us ever reaches the developer.</span>
+      </div>
     </div>
 
     <article>
-      <section>
+      <section id="overview">
         <h2>1. Overview</h2>
         <p>
           Orbit (“the App”) is provided by <strong>wikivn</strong> (“we”, “us”, or
@@ -334,31 +347,38 @@
           </li>
           <li>
             Information about installed apps is used only on your device, to provide
-            Orbit’s app list, search, Quick launch dock, notifications, Bubbles, edge
-            panel, and launcher shortcuts.
+            Orbit’s app list, search, Quick launch dock, groups, notifications, Bubbles,
+            edge panel, floating dock, home-screen widget, and launcher shortcuts.
           </li>
           <li>
-            Orbit offers a paid subscription, Orbit Pro, sold and processed by
-            <strong>Google Play</strong>. Your payment details go to Google, never to us.
-            All Orbit keeps is a single yes-or-no flag on your device recording whether
-            the subscription is active.
+            Orbit Pro is sold and processed by <strong>Google Play</strong>, either as an
+            auto-renewing subscription or as a one-time purchase. Your payment details go
+            to Google, never to us. Orbit keeps only a few yes-or-no flags on your device
+            recording whether Pro is active and how it was bought.
           </li>
-          <li>We do not collect, receive, or sell your personal information.</li>
+          <li>
+            Orbit may ask Google Play to show its in-app rating card. Google decides
+            whether it appears and does not tell Orbit what you chose.
+          </li>
+          <li>
+            We do not collect, receive, or sell your personal information. The only way
+            anything reaches us is if you choose to email us.
+          </li>
         </ul>
         <p>
           Android’s backup and device-transfer services may copy the limited preferences
-          described below to your own backup account or another device. The developer
-          cannot access those backups.
+          described below to your own backup account or another device. Your Pro status is
+          excluded from both. The developer cannot access those backups.
         </p>
       </section>
 
-      <section>
+      <section id="permissions">
         <h2>2. Permissions the App requests</h2>
         <p>
           Orbit requests the following. Several are declared by the Google Play Billing
-          Library the App includes in order to sell its subscription, rather than by
-          Orbit’s own code; they are listed here anyway, because they appear on your
-          device’s permission screen and you are entitled to know what they are for.
+          Library the App includes in order to sell Orbit Pro, rather than by Orbit’s own
+          code; they are listed here anyway, because they appear on your device’s
+          permission screen and you are entitled to know what they are for.
         </p>
         <div class="table-scroll">
           <table>
@@ -376,8 +396,9 @@
               <tr>
                 <td><code>SYSTEM_ALERT_WINDOW</code></td>
                 <td>
-                  Draw the Pro edge panel’s handle and rail over other apps. Off until
-                  you switch it on.
+                  Draw the Pro edge panel over other apps — either the handle at the
+                  screen’s edge and the panel it opens, or the floating dock button and the
+                  bar it opens — and the panel’s search. Off until you switch it on.
                 </td>
               </tr>
               <tr>
@@ -392,11 +413,14 @@
               </tr>
               <tr>
                 <td><code>RECEIVE_BOOT_COMPLETED</code></td>
-                <td>Put the Quick launch dock and the edge panel back after a restart.</td>
+                <td>
+                  Put the Quick launch dock and the edge panel back after a restart or an
+                  App update.
+                </td>
               </tr>
               <tr>
                 <td><code>com.android.vending.BILLING</code></td>
-                <td>Offer and complete the Orbit Pro subscription through Google Play.</td>
+                <td>Offer and complete Orbit Pro purchases through Google Play.</td>
               </tr>
               <tr>
                 <td>
@@ -404,216 +428,396 @@
                   <code>WAKE_LOCK</code>
                 </td>
                 <td>
-                  Declared by the Google Play Billing Library. See “Network access” below.
+                  Declared by the Google Play Billing Library. See
+                  <a href="#network">Network access</a> below.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>BIND_NOTIFICATION_LISTENER_SERVICE</code><br>
+                  (notification access)
+                </td>
+                <td>
+                  Power the Pro “Bubble on notification” feature: show an app’s Bubble when
+                  that app posts a notification. Off until you switch it on and approve it.
+                  See <a href="#notification-access">Notification access</a> below.
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p>Orbit does <strong>not</strong> request <code>QUERY_ALL_PACKAGES</code>.</p>
         <p>
-          Orbit does <strong>not</strong> request <code>QUERY_ALL_PACKAGES</code>, and
-          does <strong>not</strong> request Android’s notification-listener access. It
-          cannot read the contents of notifications from other apps.
-        </p>
-        <p>
-          You can deny or revoke <code>POST_NOTIFICATIONS</code> and
-          <code>SYSTEM_ALERT_WINDOW</code> in Android Settings at any time. Quick launch,
-          Bubbles and the edge panel stop working without them; nothing else in the App
-          is affected.
+          You can deny or revoke <code>POST_NOTIFICATIONS</code>,
+          <code>SYSTEM_ALERT_WINDOW</code> and notification access in Android Settings at
+          any time. Quick launch, Bubbles, the edge panel and Bubble on notification stop
+          working without them; nothing else in the App is affected.
         </p>
       </section>
 
-      <section>
-        <h2>3. Network access</h2>
+      <section id="notification-access">
+        <h2>3. Notification access</h2>
         <p>
-          Orbit’s own code makes no network requests. It has no server to contact, and
-          none of your app list, preferences or Quick launch selections is transmitted
-          anywhere by the App.
+          “Bubble on notification” is an optional Pro feature that shows an app’s Bubble,
+          collapsed at the edge of the screen, when that app posts a notification. To know
+          that a notification was posted, Orbit has to hold Android’s
+          <strong>notification access</strong> (a notification listener). Because this is
+          the most far-reaching access the App ever asks for, here is exactly what it does
+          with it:
+        </p>
+        <ul>
+          <li>
+            <strong>It is off by default.</strong> Nothing runs until you switch the feature
+            on in Orbit’s settings <em>and</em> approve Orbit on Android’s own “Notification
+            access” page. Switching the feature off, or Pro lapsing, makes Orbit’s listener
+            disconnect itself, so the approval on Android’s page carries no running code
+            behind it.
+          </li>
+          <li>
+            <strong>It answers only for apps you chose.</strong> There is no default list. A
+            notification from any app you have not chosen is ignored on the first line.
+          </li>
+          <li>
+            <strong>For a chosen app, it reads only what it needs to decide.</strong> That is
+            the sender’s package identifier; two flags that say whether the notification is
+            an ongoing one or a group summary; the notification’s system key, which Android
+            uses to identify it; and the time the app stamped on it. When a notification is
+            removed from the shade, the listener reads the sender’s package identifier and
+            the key once more, and nothing else. It never reads the title, text, images,
+            actions, people or any other contents of a notification — except under
+            <em>Preview</em>, below — and it never asks Android for the list of notifications
+            currently in the shade.
+          </li>
+          <li>
+            <strong>It keeps nothing on disk.</strong> No notification, and nothing derived
+            from one, is written to Orbit’s storage or transmitted. To avoid announcing the
+            same notification over and over when an app re-posts it unchanged, the listener
+            remembers, in memory only, the key and time stamp of the last 64 notifications it
+            answered (and, for an app with <em>Preview</em> on, a numeric fingerprint of the
+            words, never the words themselves) for up to 90 seconds. All of it is gone when
+            the App’s process ends. For troubleshooting, the listener writes short debug
+            lines to Android’s temporary system log naming the sending app’s package
+            identifier and what Orbit did (for example, that a Bubble was shown); these lines
+            never contain a notification’s contents.
+          </li>
+          <li>
+            <strong>What it produces.</strong> The only thing the App does with the event is
+            post a Bubble notification of its own, on the same device, aimed at the sending
+            app’s launcher entry. That Bubble’s own line says “new notification”, with a
+            count of how many the app has posted since the Bubble appeared; Android shows it
+            beside the Bubble for a few seconds, after which Orbit hides its own card from the
+            notification shade again. The count is held in memory only, starts over when the
+            app’s notification leaves the shade, and is gone when the App’s process ends.
+          </li>
+          <li>
+            <strong>The Bubble replaces the notification while you are using the phone.</strong>
+            Once Orbit has decided a Bubble is coming for a notification — Bubbles are on, and
+            the app is one Android will draw in one — it dismisses the app’s own notification
+            from the shade, so the event appears once, as the Bubble, and the Bubble’s own
+            notification alerts in its place with your device’s default sound and vibration.
+            This happens only while the phone is awake and unlocked. With the screen off or
+            locked, the app’s notification is left exactly as the app posted it and stays
+            there after you unlock; Orbit’s own Bubble is put up silently, with no “new
+            notification” line. Orbit never snoozes, replies to or otherwise changes another
+            app’s notification.
+          </li>
+          <li>
+            <strong>One optional, per-app setting widens what is read, and only for the apps
+            you switch it on for.</strong> <em>Preview</em>, chosen next to an app in the
+            list, has the listener read that app’s notification title and text (for a
+            conversation, the latest message and who sent it, up to 200 characters each) so
+            that the Bubble’s own line can show them instead of “new notification”. This
+            happens only while the phone is unlocked; with the phone locked the words are not
+            read at all. They are held in memory for the length of that one post and are
+            never stored, logged or transmitted. For every app without Preview, which is
+            every app by default, Orbit never reads a notification’s contents.
+          </li>
+        </ul>
+        <p>
+          Orbit does not use notification access for any other purpose, and does not use it
+          in the free tier at all.
+        </p>
+      </section>
+
+      <section id="network">
+        <h2>4. Network access</h2>
+        <p>
+          Orbit’s own code makes no network requests. It has no server to contact, and none
+          of your app list, preferences, searches, Quick launch selections or groups is
+          transmitted anywhere by the App.
         </p>
         <p>
           The <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code> and
-          <code>WAKE_LOCK</code> permissions come from the Google Play Billing Library,
-          which Orbit includes so that the subscription can be offered and purchased.
-          That library talks to the Google Play Store app installed on your device, which
-          is what actually contacts Google. Anything sent in the course of that is handled
-          by Google under
+          <code>WAKE_LOCK</code> permissions come from the Google Play Billing Library, which
+          Orbit includes so that Orbit Pro can be offered and purchased. Orbit also includes
+          the Google Play In-App Review library, which shows Google Play’s rating card. Both
+          libraries talk to the Google Play Store app installed on your device, which is what
+          actually contacts Google. Anything sent in the course of that is handled by Google
+          under
           <a href="https://policies.google.com/privacy">Google’s own Privacy Policy</a>,
           not by us, and we receive none of it.
         </p>
       </section>
 
-      <section>
-        <h2>4. Purchases and subscriptions</h2>
-        <p>Orbit Pro is an auto-renewing subscription sold through Google Play.</p>
+      <section id="purchases">
+        <h2>5. Purchases</h2>
+        <p>
+          Orbit Pro is offered through Google Play in two forms: an auto-renewing
+          subscription, and a one-time purchase that does not renew. Which forms are
+          available can vary by country and over time.
+        </p>
         <p>
           <strong>What Google does.</strong> Google Play collects and processes everything
-          to do with the payment: your payment method, billing details, tax information
-          and the transaction itself. We never see any of it. Google’s handling of that
-          data is governed by Google’s own Privacy Policy and the Google Play Terms of
-          Service.
+          to do with the payment: your payment method, billing details, tax information and
+          the transaction itself. We never see any of it. Google’s handling of that data is
+          governed by Google’s own Privacy Policy and the Google Play Terms of Service.
         </p>
         <p>
-          <strong>What the App does.</strong> When you open the Pro screen, or start the
-          App, Orbit asks Google Play two things: what the subscription costs in your
-          currency, and whether this Google account already owns it. Google Play answers
-          with the prices, and with a purchase record for anything owned — a product
-          identifier, a purchase token, an order identifier, a timestamp and Google’s
-          signature over them. Orbit uses these only to decide whether Pro is active, and
-          to confirm Google really issued the record.
+          <strong>What the App does.</strong> When you open the Pro screen, or start the App,
+          Orbit asks Google Play what Orbit Pro costs in your currency, and whether this
+          Google account already owns it. Google Play answers with the prices and offers, and
+          with a purchase record for anything owned — a product identifier, a purchase token,
+          an order identifier, a timestamp and Google’s signature over them. Orbit uses these
+          only to decide whether Pro is active and how it was bought, and to confirm Google
+          really issued the record.
         </p>
         <p>
-          <strong>What the App stores.</strong> One boolean, <code>pro_unlocked</code>, in
-          Orbit’s own private app storage. Purchase tokens, order identifiers and payment
-          details are not written to Orbit’s storage, and are not sent to the developer or
-          to any third party.
+          <strong>What the App stores.</strong> In a private storage file of its own, kept
+          apart from Orbit’s other preferences: whether Pro is active; whether it was bought
+          as the one-time purchase; whether a subscription is currently active; and whether
+          Google Play currently offers the subscription and the one-time purchase, so the Pro
+          screen can show the right choices before Google Play answers. Purchase tokens,
+          order identifiers and payment details are not written to Orbit’s storage, and are
+          not sent to the developer or to any third party. This file is excluded from Android
+          backup and device transfer, so Pro status is never copied to another device; Google
+          Play confirms it there instead.
         </p>
         <p>
-          <strong>Cancelling and refunds.</strong> Subscriptions are managed entirely in
-          Google Play, under Google’s refund and cancellation policies. The developer
-          cannot see, alter or cancel your subscription. When it lapses, Orbit’s copy of
-          the flag is cleared the next time Google Play tells the App the subscription is
-          no longer active.
+          <strong>Cancelling, refunds and promo codes.</strong> Subscriptions are managed
+          entirely in Google Play, under Google’s refund and cancellation policies. The
+          developer cannot see, alter or cancel your subscription. If your account holds the
+          one-time purchase and a subscription is still renewing beside it, Orbit tells you so
+          and opens Google Play’s subscription page, where you can cancel it. Redeeming a
+          promo code opens Google Play’s redeem page. When Pro ends, Orbit’s flags are cleared
+          the next time Google Play tells the App it is no longer active.
         </p>
       </section>
 
-      <section>
-        <h2>5. Information the App accesses</h2>
+      <section id="ratings-feedback">
+        <h2>6. Ratings, sharing and feedback</h2>
+        <p>
+          <strong>In-app rating.</strong> After you have used the App for at least two days,
+          Orbit may ask Google Play to show its rating card — at most three times, and at
+          least 20 days apart. Google Play decides whether the card actually appears, and
+          reports nothing back: Orbit never learns whether it was shown, or whether and how
+          you rated. To keep to that schedule, Orbit stores on your device when you first
+          opened the App, when it may next ask, and how many times it has asked.
+        </p>
+        <p>
+          <strong>Rate.</strong> The “Rate” row in Settings opens Orbit’s page on Google Play.
+        </p>
+        <p>
+          <strong>Share.</strong> The “Share” row opens Android’s share sheet with a short
+          message and a link to Orbit’s Google Play page. Orbit does not see which app you
+          share to or with whom.
+        </p>
+        <p>
+          <strong>Feedback.</strong> The “Feedback” row opens your email app with a message
+          addressed to the developer. Below the space for your message, it pre-fills the App’s
+          name and version, your Android version and your device model, to help diagnose
+          problems. Nothing is sent unless you send the email yourself, and you can edit or
+          delete any of it before you do. If you do email us, we receive your email address and
+          whatever the message contains, and use them only to reply to you.
+        </p>
+      </section>
+
+      <section id="information-accessed">
+        <h2>7. Information the App accesses</h2>
         <h3>Installed and launchable apps</h3>
         <p>
-          Orbit reads the list of apps on your device that have a launcher activity. For
-          each visible app, Orbit accesses:
+          Orbit reads the list of apps on your device that have a launcher activity. For each
+          visible app, Orbit accesses:
         </p>
         <ul>
           <li>the app name;</li>
           <li>the package identifier;</li>
-          <li>the launcher activity; and</li>
-          <li>the app icon.</li>
+          <li>the launcher activity;</li>
+          <li>the app icon; and</li>
+          <li>
+            the app’s version code, used only to notice when an app Android refused to open as
+            a Bubble has been updated and should be tried again.
+          </li>
         </ul>
         <p>
-          Orbit uses this information to display and search your app list, let you choose
-          apps for Quick launch and groups, open apps through Android Bubbles, and create
-          local notifications and launcher shortcuts.
+          Orbit uses this information to display and search your app list, let you choose apps
+          for Quick launch and groups, open apps through Android Bubbles, and create local
+          notifications, the edge panel, the home-screen widget and launcher shortcuts.
+        </p>
+        <p>
+          On first run, Orbit fills Quick launch and a first group with a few widely used apps,
+          if they are installed and Android will open them as Bubbles. It does this by checking
+          a fixed list of well-known package identifiers built into the App against the apps on
+          your device; you can remove them at any time.
         </p>
         <p>
           This list is read and used on your device only. Orbit does not request the
           <code>QUERY_ALL_PACKAGES</code> permission; it declares a <code>&lt;queries&gt;</code>
-          element granting visibility of launchable apps, alongside the Google Play billing
-          service entries the Billing Library adds so it can reach the Play Store.
+          element granting visibility of launchable apps, alongside the entries the Google Play
+          libraries add so they can reach the Play Store.
+        </p>
+
+        <h3>Search</h3>
+        <p>
+          The App’s search, on its main screen and in the edge panel, matches what you type
+          against the apps on your device (and, in the edge panel, your group names). What you
+          type is held in memory only while you search; it is cleared when the search closes
+          and is never stored or transmitted.
         </p>
 
         <h3>Preferences stored on your device</h3>
         <p>Orbit stores only the preferences needed to provide its features:</p>
         <ul>
           <li>package identifiers for apps you add to Quick launch;</li>
-          <li>package identifiers for apps you place in groups, and the groups themselves;</li>
+          <li>
+            the groups you create, their names, and the package identifiers of the apps in
+            them;
+          </li>
           <li>package identifiers for apps you hide;</li>
           <li>
-            package identifiers for apps Android has refused to open as a Bubble, so the
-            App can mark them;
+            package identifiers and version codes for apps Android has refused to open as a
+            Bubble, so the App can mark them, and the Bubble permission state at the time, so
+            the marks can be re-checked when it changes;
           </li>
           <li>your Quick launch notification mode;</li>
           <li>your light, dark, or system theme choice;</li>
           <li>
-            whether the edge panel is on, which side it sits on, and how far along that
-            side you have moved its handle;
+            whether the edge panel is on; whether it opens from a handle at the screen’s edge or
+            from a floating button; which side the handle is on and where along it; where the
+            floating button sits; and the sizes, transparency and colour you chose for them;
           </li>
-          <li>whether you dismissed the in-app usage tips and notices; and</li>
-          <li>whether the Orbit Pro subscription is active.</li>
+          <li>
+            whether Bubble on notification is on, the package identifiers of the apps you chose
+            for it, and the ones you switched Preview on for;
+          </li>
+          <li>
+            whether you dismissed the in-app tips and notices, whether you accepted the in-app
+            explanation of Preview, and whether the first-run starter apps have been added;
+          </li>
+          <li>
+            when you first opened the App, and when and how often it has asked Google Play for a
+            rating (see <a href="#ratings-feedback">Ratings, sharing and feedback</a>); and
+          </li>
+          <li>
+            whether Orbit Pro is active and how it was bought (see
+            <a href="#purchases">Purchases</a>).
+          </li>
         </ul>
         <p>
-          These are kept in Orbit’s own private app storage, which other apps cannot read.
-          Your per-app language selection is not stored by Orbit — it is managed by
-          Android’s own system language service.
+          These are kept in Orbit’s own private app storage, which other apps cannot read. Your
+          per-app language selection is not stored by Orbit — it is managed by Android’s own
+          system language service.
         </p>
       </section>
 
-      <section>
-        <h2>6. Information the App does not access</h2>
+      <section id="information-not-accessed">
+        <h2>8. Information the App does not access</h2>
         <p>Orbit does not access, collect, or process:</p>
         <ul>
-          <li>your searches, usage history, or which apps you open;</li>
           <li>
-            the contents of notifications from other apps — Orbit does not request or
-            use Android’s notification-listener access;
+            a history of which apps you open. Orbit checks, while it runs, which of its own
+            Bubbles are currently open, so it can mark them; this is not recorded;
           </li>
           <li>
-            the contents of any app the edge panel is drawn over. The panel is a window
-            Orbit draws on top; it does not read, record or capture what is beneath it;
+            the contents of notifications from other apps, except from an app you switch
+            <em>Preview</em> on for. With Bubble on notification switched on and approved,
+            Orbit’s listener otherwise sees only which app posted a notification — see
+            <a href="#notification-access">Notification access</a> above — and nothing about
+            what it says;
+          </li>
+          <li>
+            the contents of any app the edge panel or the floating dock is drawn over. They are
+            windows Orbit draws on top; they do not read, record or capture what is beneath
+            them;
           </li>
           <li>your contacts, messages, call logs, location, photos, files, camera, or microphone;</li>
           <li>your payment method or billing details;</li>
+          <li>your ratings or reviews on Google Play;</li>
           <li>advertising identifiers, or any account information.</li>
         </ul>
       </section>
 
-      <section>
-        <h2>7. Advertising and analytics</h2>
+      <section id="advertising">
+        <h2>9. Advertising and analytics</h2>
         <p>
           Orbit contains no advertising and no analytics. There is no advertising SDK, no
-          analytics SDK, and no crash-reporting SDK in the App. Orbit is paid for by its
-          subscription, and will not be paid for by advertising.
+          analytics SDK, and no crash-reporting SDK in the App. Orbit is paid for by Orbit Pro,
+          and will not be paid for by advertising.
         </p>
       </section>
 
-      <section>
-        <h2>8. Android notifications, Bubbles, and launcher shortcuts</h2>
+      <section id="system-surfaces">
+        <h2>10. Android notifications, Bubbles, widget and launcher shortcuts</h2>
         <p>
           Orbit uses Android system services to show the Quick launch notification, create
-          Bubbles, and publish launcher shortcuts. App names, icons, and package identifiers
-          are provided to Android system components on the same device, only as needed to
-          render and operate those features.
+          Bubbles, draw its home-screen widget, and publish launcher shortcuts. App names,
+          icons, and package identifiers are provided to Android system components and to your
+          launcher on the same device, only as needed to render and operate those features. The
+          widget shows the same Quick launch apps and groups as the App and is drawn from data
+          on your device.
         </p>
         <p>
-          The App requests the <code>POST_NOTIFICATIONS</code> permission on supported
-          Android versions. You can deny or revoke it in Android Settings, though Quick
-          launch and Bubbles will not work without it.
+          The App requests the <code>POST_NOTIFICATIONS</code> permission on supported Android
+          versions. You can deny or revoke it in Android Settings, though Quick launch and
+          Bubbles will not work without it.
         </p>
       </section>
 
-      <section>
-        <h2>9. Links that leave the App</h2>
+      <section id="links">
+        <h2>11. Links that leave the App</h2>
         <p>
-          Orbit’s Settings screen contains a link to this Privacy Policy. The Pro screen
-          points you to Google Play to manage or cancel a subscription. Opening either
-          hands the web address to whichever browser or app you have chosen; the request
-          is made there, under its own privacy policy, not by Orbit.
+          Several places in the App hand you to another app or a web page: the privacy policy
+          link and “Rate” in Settings, managing a subscription or redeeming a promo code from
+          the Pro screen, “Share”, and “Feedback”. Opening one hands the address or message to
+          whichever browser, store, share target or email app you have chosen; what happens
+          there is governed by that app’s own privacy policy, not by Orbit.
         </p>
       </section>
 
-      <section>
-        <h2>10. Backup and device transfer</h2>
+      <section id="backup">
+        <h2>12. Backup and device transfer</h2>
         <p>
           If Android backup is enabled on your device, Android may back up the preferences
           listed above, including package identifiers for apps you added to Quick launch,
-          placed in groups, or hid. Android may also transfer those preferences directly
-          to a new device.
+          placed in groups, or hid. Android may also transfer those preferences directly to a
+          new device. Your Pro status is excluded from both; Google Play confirms it on the new
+          device instead.
         </p>
         <p>
-          These operations are controlled by Android and your backup provider. Backup data
-          is associated with your own device or backup account, is not sent to the developer,
-          and cannot be accessed by the developer. You can manage or disable backup through
-          your device or account settings.
+          These operations are controlled by Android and your backup provider. Backup data is
+          associated with your own device or backup account, is not sent to the developer, and
+          cannot be accessed by the developer. You can manage or disable backup through your
+          device or account settings.
         </p>
       </section>
 
-      <section>
-        <h2>11. Data sharing and sale</h2>
+      <section id="sharing">
+        <h2>13. Data sharing and sale</h2>
         <p>
           Orbit does not sell user data and does not share it with third parties. The
-          developer does not receive your installed-app list, your searches, your Quick
-          launch selections, your groups, or your hidden-app selections. No third-party
-          service receives them either.
+          developer does not receive your installed-app list, your searches, your Quick launch
+          selections, your groups, your hidden-app selections, or your notifications. No
+          third-party service receives them either.
         </p>
         <p>
           Android platform services process this information locally on your device, or
-          provide the backup and device-transfer functionality described above. Google
-          Play receives what is necessary to sell and maintain a subscription, as described
-          under “Purchases and subscriptions”.
+          provide the backup and device-transfer functionality described above. Google Play
+          receives what is necessary to sell and maintain Orbit Pro and to show its rating
+          card, as described above.
         </p>
       </section>
 
-      <section>
-        <h2>12. Data retention and deletion</h2>
+      <section id="retention">
+        <h2>14. Data retention and deletion</h2>
         <p>Preferences remain on your device until you:</p>
         <ul>
           <li>remove or change them in the App;</li>
@@ -621,50 +825,54 @@
           <li>uninstall the App.</li>
         </ul>
         <p>
-          Backups previously created by Android may remain in your backup account according
-          to the backup provider’s retention rules. You can manage or delete those backups
-          through your device or account settings.
+          Backups previously created by Android may remain in your backup account according to
+          the backup provider’s retention rules. You can manage or delete those backups through
+          your device or account settings.
         </p>
         <p>
-          Purchase records are held by Google Play under Google’s retention policies, and
-          are requested from Google Play whenever the App needs to know whether the
-          subscription is active. The developer does not hold your installed-app list, your
-          Orbit preferences, or your purchase history, and so has nothing to delete on
-          request.
+          Purchase records are held by Google Play under Google’s retention policies, and are
+          requested from Google Play whenever the App needs to know whether Pro is active. The
+          developer does not hold your installed-app list, your Orbit preferences, or your
+          purchase history.
+        </p>
+        <p>
+          If you email us, we keep your message and email address only as long as needed to
+          answer you and handle any follow-up. You can ask us to delete that correspondence at
+          the address below.
         </p>
       </section>
 
-      <section>
-        <h2>13. Security</h2>
+      <section id="security">
+        <h2>15. Security</h2>
         <p>
           Orbit relies on Android’s application sandbox and permission model to protect its
-          local data. Purchase records received from Google Play are checked against the
-          App’s Play licensing key before they are acted on, so a record Google did not
-          issue is discarded. No storage method can be guaranteed completely secure.
+          local data. Purchase records received from Google Play are checked against the App’s
+          Play licensing key before they are acted on, so a record Google did not issue is
+          discarded. No storage method can be guaranteed completely secure.
         </p>
       </section>
 
-      <section>
-        <h2>14. Children’s privacy</h2>
+      <section id="children">
+        <h2>16. Children’s privacy</h2>
         <p>
-          Orbit is a general-purpose utility and is not directed to children under 13. The
-          App does not knowingly collect personal information from children or other users.
+          Orbit is a general-purpose utility and is not directed to children under 13. The App
+          does not knowingly collect personal information from children or other users.
           Purchases are made through Google Play, which applies its own family and
           parental-approval controls.
         </p>
       </section>
 
-      <section>
-        <h2>15. Changes to this Privacy Policy</h2>
+      <section id="changes">
+        <h2>17. Changes to this Privacy Policy</h2>
         <p>
-          We may update this Privacy Policy when the App’s features or data practices
-          change. The revised policy will show a new effective date. Material changes will
-          be reflected in the App or its Google Play listing as appropriate.
+          We may update this Privacy Policy when the App’s features or data practices change.
+          The revised policy will show a new effective date. Material changes will be reflected
+          in the App or its Google Play listing as appropriate.
         </p>
       </section>
 
-      <section>
-        <h2>16. Contact</h2>
+      <section id="contact">
+        <h2>18. Contact</h2>
         <p>For privacy questions about Orbit, contact wikivn:</p>
         <a class="contact" href="mailto:namhs.mobile@gmail.com">namhs.mobile@gmail.com</a>
       </section>
