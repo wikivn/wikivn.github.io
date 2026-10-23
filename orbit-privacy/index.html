@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Privacy Policy for Orbit, an Android quick app launcher by wikivn. Orbit runs on your device, has no server, and contains no ads or analytics. Notification access is optional and off by default.">
+  <meta name="description" content="Privacy Policy for Orbit, an Android quick app launcher by wikivn. Orbit runs on your device, has no server, contains no ads or tracking, and sends only anonymous crash reports and usage statistics. Notification access is optional and off by default.">
   <link rel="canonical" href="https://wikivn.github.io/orbit-privacy/">
   <title>Orbit Privacy Policy — wikivn</title>
   <link rel="icon" href="assets/logo.png">
@@ -27,7 +27,7 @@
       accesses, why it needs that information, and the choices available to you.
     </p>
     <div class="meta">
-      <span><strong>Effective:</strong> September 11, 2026</span>
+      <span><strong>Effective:</strong> October 23, 2026</span>
       <span><strong>Application ID:</strong> co.bubbles</span>
       <span><strong>Publisher:</strong> wikivn</span>
     </div>
@@ -37,11 +37,11 @@
     <div class="summary" aria-label="Privacy summary">
       <div class="summary-item">
         <strong>No developer server</strong>
-        <span>We operate no server, and nothing the App does sends your data to us.</span>
+        <span>We operate no server of our own. Your app list and choices of apps never leave your device.</span>
       </div>
       <div class="summary-item">
-        <strong>No ads or analytics</strong>
-        <span>No advertising, analytics, crash-reporting, or tracking software.</span>
+        <strong>No ads, no tracking</strong>
+        <span>No advertising and no advertising ID. Only anonymous crash reports and usage statistics, via Google Firebase.</span>
       </div>
       <div class="summary-item">
         <strong>On-device processing</strong>
@@ -56,8 +56,8 @@
         <span>Orbit Pro is billed by Google. Your payment details never reach us.</span>
       </div>
       <div class="summary-item">
-        <strong>You choose what reaches us</strong>
-        <span>Only an email you decide to send us ever reaches the developer.</span>
+        <strong>Nothing that identifies you</strong>
+        <span>Statistics are not linked to your name, email or Google account. Anything personal reaches us only if you email us.</span>
       </div>
     </div>
 
@@ -73,7 +73,7 @@
 <a href="#ratings-feedback"><span>06</span>Ratings, sharing and feedback</a>
 <a href="#information-accessed"><span>07</span>Information the App accesses</a>
 <a href="#information-not-accessed"><span>08</span>Information the App does not access</a>
-<a href="#advertising"><span>09</span>Advertising and analytics</a>
+<a href="#advertising"><span>09</span>Advertising, crash reports and usage statistics</a>
 <a href="#system-surfaces"><span>10</span>Android notifications, Bubbles, widget and launcher shortcuts</a>
 <a href="#links"><span>11</span>Links that leave the App</a>
 <a href="#backup"><span>12</span>Backup and device transfer</a>
@@ -94,13 +94,17 @@
           accesses, how it is used, where it is stored, and the choices available to you.
         </p>
         <p>
-          Orbit works on your Android device. We operate no server, and nothing the App
-          does sends your data to us.
+          Orbit works on your Android device. We operate no server of our own.
         </p>
         <ul>
           <li>
-            The App contains no advertising, analytics, crash-reporting, or tracking
-            software of any kind.
+            The App contains no advertising and no tracking. It does use
+            <strong>Google Firebase</strong> to send us crash reports and anonymous usage
+            statistics — how often the App is used, which settings are changed, and how the
+            Pro screen is used — so we can fix bugs and improve the App. These are not linked
+            to your name, email or Google account, never include which apps you use, and are
+            never used for advertising. See
+            <a href="#advertising">Advertising, crash reports and usage statistics</a> below.
           </li>
           <li>
             Information about installed apps is used only on your device, to provide
@@ -118,8 +122,10 @@
             whether it appears and does not tell Orbit what you chose.
           </li>
           <li>
-            We do not collect, receive, or sell your personal information. The only way
-            anything reaches us is if you choose to email us.
+            We do not sell your information, and we do not collect your name, email,
+            contacts, location, advertising ID, or the list of apps on your device. Apart from
+            the crash reports and statistics above, the only way anything reaches us is if you
+            choose to email us.
           </li>
         </ul>
         <p>
@@ -133,8 +139,8 @@
         <h2>2. Permissions the App requests</h2>
         <p>
           Orbit requests the following. Several are declared by the Google Play Billing
-          Library the App includes in order to sell Orbit Pro, rather than by Orbit’s own
-          code; they are listed here anyway, because they appear on your device’s
+          Library the App includes in order to sell Orbit Pro, or by Google Firebase, rather
+          than by Orbit’s own code; they are listed here anyway, because they appear on your device’s
           permission screen and you are entitled to know what they are for.
         </p>
         <div class="table-scroll">
@@ -185,7 +191,8 @@
                   <code>WAKE_LOCK</code>
                 </td>
                 <td>
-                  Declared by the Google Play Billing Library. See
+                  Declared by the Google Play Billing Library and by Google Firebase, which
+                  uses them to send crash reports and usage statistics. See
                   <a href="#network">Network access</a> below.
                 </td>
               </tr>
@@ -204,6 +211,13 @@
           </table>
         </div>
         <p>Orbit does <strong>not</strong> request <code>QUERY_ALL_PACKAGES</code>.</p>
+        <p>
+          Orbit also removes the advertising permissions that Firebase Analytics would
+          otherwise add — the advertising ID (<code>AD_ID</code>), Android’s Privacy Sandbox
+          advertising and attribution permissions, and Google Play’s install-referrer service
+          — so the App cannot read your advertising ID or learn which ad or link led you to
+          install it.
+        </p>
         <p>
           You can deny or revoke <code>POST_NOTIFICATIONS</code>,
           <code>SYSTEM_ALERT_WINDOW</code> and notification access in Android Settings at
@@ -299,9 +313,13 @@
       <section id="network">
         <h2>4. Network access</h2>
         <p>
-          Orbit’s own code makes no network requests. It has no server to contact, and none
-          of your app list, preferences, searches, Quick launch selections or groups is
-          transmitted anywhere by the App.
+          Orbit has no server of its own. None of your app list, searches, Quick launch
+          selections, groups, hidden apps or notifications is transmitted anywhere by the App.
+        </p>
+        <p>
+          The App does send crash reports and usage statistics to Google Firebase, as
+          described in <a href="#advertising">Advertising, crash reports and usage
+          statistics</a>. Firebase connects to Google’s servers directly.
         </p>
         <p>
           The <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code> and
@@ -348,6 +366,15 @@
           not sent to the developer or to any third party. This file is excluded from Android
           backup and device transfer, so Pro status is never copied to another device; Google
           Play confirms it there instead.
+        </p>
+        <p>
+          <strong>What the statistics record.</strong> When you open the Pro screen, try to
+          buy or restore Pro, or reach a free-tier limit, the usage statistics record that it
+          happened, which plan you chose, whether it succeeded, was cancelled or is pending,
+          and which limit was reached. Firebase Analytics also records Google Play purchases
+          automatically: the product, its price and currency. Whether Pro is active is
+          attached to the statistics as a yes-or-no property. None of this includes your
+          payment details, purchase token or order identifier.
         </p>
         <p>
           <strong>Cancelling, refunds and promo codes.</strong> Subscriptions are managed
@@ -499,16 +526,70 @@
           <li>your contacts, messages, call logs, location, photos, files, camera, or microphone;</li>
           <li>your payment method or billing details;</li>
           <li>your ratings or reviews on Google Play;</li>
-          <li>advertising identifiers, or any account information.</li>
+          <li>your advertising ID, Android ID, or any account information.</li>
         </ul>
       </section>
 
       <section id="advertising">
-        <h2>9. Advertising and analytics</h2>
+        <h2>9. Advertising, crash reports and usage statistics</h2>
+        <h3>Advertising</h3>
         <p>
-          Orbit contains no advertising and no analytics. There is no advertising SDK, no
-          analytics SDK, and no crash-reporting SDK in the App. Orbit is paid for by Orbit Pro,
+          Orbit contains no advertising and no advertising SDK. Orbit is paid for by Orbit Pro,
           and will not be paid for by advertising.
+        </p>
+        <h3>Crash reports and usage statistics</h3>
+        <p>
+          Orbit uses two Google services, provided by Google LLC as part of
+          <strong>Google Firebase</strong>, to find out when the App breaks and how it is used.
+        </p>
+        <p>
+          <strong>Firebase Crashlytics</strong> sends a report when the App crashes, or when it
+          records an error it recovered from. A report contains the technical details of the
+          error (which part of the App’s code failed), the App version, your device model and
+          Android version, the device’s orientation and free memory and storage at the time,
+          and a random identifier for this installation of the App.
+        </p>
+        <p><strong>Google Analytics for Firebase</strong> records usage statistics:</p>
+        <ul>
+          <li>
+            events the SDK collects by itself: the App being opened for the first time, updated
+            or used, how long it is used for, which of the App’s screens is shown, and Google
+            Play purchases (see <a href="#purchases">Purchases</a>);
+          </li>
+          <li>
+            events Orbit records: which setting you changed and what you changed it to (for
+            example the theme, the Quick launch notification mode, the language, the edge
+            panel’s switch, side, sizes, transparency and colour, or Bubble on notification’s
+            switch); how the Pro screen is used; and which free-tier limit sent you to it;
+          </li>
+          <li>whether Pro is active;</li>
+          <li>
+            with each of these: the App version, your device model, Android version, language,
+            an approximate country or region, and a random identifier for this installation of
+            the App.
+          </li>
+        </ul>
+        <p>
+          <strong>What is never sent.</strong> The names or package identifiers of apps on
+          your device, the apps you add to Quick launch, groups, hidden apps or Bubble on
+          notification, your group names, what you type into search, the contents of any
+          notification, your name, email address or Google account, your advertising ID, or
+          your Android ID.
+        </p>
+        <p>
+          <strong>What it is not used for.</strong> Orbit turns off the advertising features
+          of Google Analytics: no advertising ID or Android ID is collected, consent to use the
+          data for advertising, ad storage and ad personalisation is set to “denied”, and the
+          data is not linked to Google advertising products or Google Signals. We use the
+          statistics only to understand how the App is used and which features to improve, and
+          the crash reports only to fix bugs.
+        </p>
+        <p>
+          Google processes this data on our behalf under the
+          <a href="https://firebase.google.com/terms/data-processing-terms">Firebase data
+          processing terms</a>, and describes how it handles it in
+          <a href="https://firebase.google.com/support/privacy">Privacy and Security in
+          Firebase</a>. Data may be processed on Google’s servers outside your country.
         </p>
       </section>
 
@@ -560,10 +641,16 @@
       <section id="sharing">
         <h2>13. Data sharing and sale</h2>
         <p>
-          Orbit does not sell user data and does not share it with third parties. The
-          developer does not receive your installed-app list, your searches, your Quick launch
-          selections, your groups, your hidden-app selections, or your notifications. No
-          third-party service receives them either.
+          Orbit does not sell user data and does not share it with third parties for their
+          own purposes. The developer does not receive your installed-app list, your searches,
+          your Quick launch selections, your groups, your hidden-app selections, or your
+          notifications. No third-party service receives them either.
+        </p>
+        <p>
+          The crash reports and usage statistics described in
+          <a href="#advertising">Advertising, crash reports and usage statistics</a> are
+          processed by Google Firebase as our service provider, and are not shared with anyone
+          else.
         </p>
         <p>
           Android platform services process this information locally on your device, or
@@ -591,6 +678,12 @@
           requested from Google Play whenever the App needs to know whether Pro is active. The
           developer does not hold your installed-app list, your Orbit preferences, or your
           purchase history.
+        </p>
+        <p>
+          Crash reports are kept by Firebase Crashlytics for 90 days. Usage statistics are kept
+          by Google Analytics for up to 14 months, and then deleted automatically. Because
+          neither is linked to your identity, we cannot find your data from your name or email
+          address; uninstalling the App stops anything more from being sent.
         </p>
         <p>
           If you email us, we keep your message and email address only as long as needed to
